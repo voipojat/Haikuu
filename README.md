@@ -1,0 +1,1 @@
+An app with user authentication where you can write haikus or rate other people's haikus. I'm using Firebase for the authentication and React Hooks (since I'm no very familiar with hooks and I want to learn more about them) for the logic behind the app. The app is currently under construction.
