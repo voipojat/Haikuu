@@ -23,7 +23,7 @@ const SignUp = ({ history }) => {
             <h2>Join Haikuu!</h2>
             <h1>Create your account</h1>
             <Grid container justify="flex-end" alignItems="center" direction="column">
-                <Paper style={{ width: "20%", padding: "2rem" }}>
+                <Paper style={{ maxWidth: 300, padding: "2rem" }}>
                     <form onSubmit={handleSignUp}>
                         <TextField name="email" id="outlined-basic" label="Username" variant="outlined" fullWidth required />
                         <TextField name="password" id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined" fullWidth required />

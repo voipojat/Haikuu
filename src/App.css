@@ -1,7 +1,6 @@
 .App {
   text-align: center;
 }
-
 .head{
   font-family: 'Allura';
     font-size: 3rem;
@@ -11,3 +10,9 @@
   color: #61dafb;
 }
 
+@media only screen and (max-width: 550px) {
+  #boi{
+    font-size: 0;
+  }
+  
+}

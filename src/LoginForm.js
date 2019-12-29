@@ -23,9 +23,9 @@ const Login = ({ history }) => {
     }
     return (
         <div className="App">
-            <h1 className="head">Haikuu</h1>
+            <h1 >Log In</h1>
             <Grid container justify="flex-end" alignItems="center" direction="column">
-                <Paper style={{ width: "20%", padding: "2rem" }}>
+                <Paper style={{ maxWidth: 300, padding: "2rem" }}>
                     <form onSubmit={handleLogin}>
                         <TextField name="email" id="outlined-basic" label="Username" variant="outlined" fullWidth />
                         <TextField name="password" id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined" fullWidth />

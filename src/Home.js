@@ -1,17 +1,40 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { HaikuContext } from './HaikuList'
-import Haiku from './Haiku.js'
+import Haiku from './Haiku'
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { FormContext } from './FormContext'
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+        overflow: 'hidden',
+        padding: theme.spacing(0, 3)
+    },
+
+}));
 
 function Home() {
-    const { haikus, setHaiku } = useContext(HaikuContext);
-
+    const classes = useStyles();
+    const { haikus } = useContext(HaikuContext);
+    const { formSent } = useContext(FormContext)
     return (
-        <div>
-            <h1 style={{ margin: "1rem" }}>Haikuu - awaken your inner poet!</h1>
-            <h2 style={{ margin: "1rem" }}>Popular haikus</h2>
-            {haikus.map(haiku => (
-                <Haiku id={haiku.id} title={haiku.title} text={haiku.text} user={haiku.user} score={haiku.score} />
-            ))}
+        <div >
+            {formSent === true ?
+                <div style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}
+                ><h1 style={{ background: "rgb(104,114,165)", color: "white", borderRadius: "15px", padding: "0.5rem", marginTop: "0.5rem", fontWeight: "400", display: "inline-block" }}>Your haiku was created!</h1>
+                    <CheckCircleIcon style={{ fontSize: "10rem", display: "inline-block" }} />
+                </div> :
+                <> <div style={{ textAlign: "center" }}>
+                    <h1 style={{ background: "rgb(104,114,165)", color: "white", display: "inline-block", borderRadius: "15px", padding: "0.5rem", marginTop: "0.5rem", fontWeight: "400" }}>
+                        Popular haikus</h1></div>
+                    <div className={classes.root} >
+                        <div style={{ position: "absolute", top: "140px", left: "0px", right: "0px", bottom: "0px", overflowY: "scroll" }}>
+                            {haikus.map(haiku => (
+                                <Haiku key={haiku.id} id={haiku.id} title={haiku.title} text={haiku.text} user={haiku.user} score={haiku.score} userVote={haiku.userVote} />
+                            ))}
+                        </div>
+                    </div></>}
         </div>
     )
 }

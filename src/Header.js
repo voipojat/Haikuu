@@ -7,14 +7,25 @@ import fire from './Fire'
 function Header() {
     const { currentUser } = useContext(AuthContext)
     return (
-        <AppBar position="static"  >
-            <Toolbar >
-                <Link to="/" style={{ textDecoration: "none", color: "white", margin: "0 1rem" }}>Home</Link>
-                {currentUser !== null ? <Typography style={{ margin: "0 1rem" }}>Logged in as {currentUser.email}</Typography> : null}
-                {currentUser !== null ? <Button onClick={() => fire.auth().signOut()} variant="contained" style={{ margin: "0 1rem" }}>Sign Out</Button> : null}
-                {currentUser !== null ? <Link to="/storyfield" style={{ textDecoration: "none", color: "white", margin: "0 1rem" }}>Write a new haiku!</Link> : null}
-            </Toolbar>
-        </AppBar>
+        <div style={{ display: "flex", flexGrow: 1 }} >
+            <AppBar position="static">
+                <Toolbar>
+                    <Link to="/" style={{ textDecoration: "none", color: "white", flexGrow: 1, marginRight: "0.5rem" }} edge="start" >Home</Link>
+                    {currentUser !== null ?
+                        <>
+                            <Link id="boi2" to="/storyfield" style={{ textDecoration: "none", color: "white", margin: "0 1rem", flexShrink: 0 }} >Write a new haiku!</Link>
+                            <Typography id="boi" style={{ margin: "0 1rem" }}>{currentUser.email}</Typography>
+                            <Button onClick={() => fire.auth().signOut()} variant="contained" style={{ backgroundColor: "rgb(104,114,165)", color: "white", flexShrink: 0, marginRight: "0.5rem" }}>Sign Out</Button>
+                        </>
+                        :
+                        <>
+                            <Typography ></Typography>
+                            <Link to="/login" style={{ textDecoration: "none", color: "white", marginRight: "0.5rem", backgroundColor: "rgb(104,114,165)", padding: "0.5rem", borderRadius: "15px", fontWeight: "bold" }}>Log In</Link>
+                            <Link to="/signup" style={{ textDecoration: "none", color: "white", backgroundColor: "rgb(104,114,165)", padding: "0.5rem", borderRadius: "15px" }}>Sign Up</Link>
+                        </>}
+                </Toolbar>
+            </AppBar>
+        </div >
     )
 }
 
