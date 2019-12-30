@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AppBar, Typography, Button, Toolbar } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import { AuthContext } from './Auth'
+import { AuthContext } from './context/Auth'
 import fire from './Fire'
 
 function Header() {

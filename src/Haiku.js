@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Paper } from '@material-ui/core'
-import { HaikuContext } from './HaikuList'
+import { HaikuContext } from './context/HaikuList'
 import { makeStyles } from '@material-ui/core/styles';
-import { AuthContext } from './Auth'
+import { AuthContext } from './context/Auth'
 import { Grid } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
@@ -26,6 +26,7 @@ export default function Haiku({ title, text, user, score, id }) {
         setHaiku(updatedHaikus);
     }
     window.localStorage.setItem("haikus", JSON.stringify(haikus))
+
     return (
         <Paper className={classes.paper} style={{
             wordWrap: "break-word"

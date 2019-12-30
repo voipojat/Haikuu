@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { HaikuContext } from './HaikuList'
+import { HaikuContext } from './context/HaikuList'
 import Haiku from './Haiku'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import { FormContext } from './FormContext'
+import { FormContext } from './context/FormContext'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({

@@ -2,9 +2,9 @@ import React, { useEffect, useContext } from 'react'
 import uuid from 'uuid/v4'
 import { TextField, Button } from '@material-ui/core'
 import useInputState from './hooks/useInputState'
-import { AuthContext } from './Auth'
-import { HaikuContext } from './HaikuList'
-import { FormContext } from './FormContext'
+import { AuthContext } from './context/Auth'
+import { HaikuContext } from './context/HaikuList'
+import { FormContext } from './context/FormContext'
 import { Redirect } from 'react-router-dom'
 
 function StoryField() {

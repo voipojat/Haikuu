@@ -2,7 +2,7 @@ import React, { useContext, useCallback } from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
 import { Paper, TextField, Grid, Button } from '@material-ui/core'
 import fire from './Fire'
-import { AuthContext } from './Auth'
+import { AuthContext } from './context/Auth'
 
 const Login = ({ history }) => {
     const handleLogin = useCallback(async event => {

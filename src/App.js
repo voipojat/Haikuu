@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import SignUp from './SignUp'
-import { AuthProvider } from './Auth';
-import { HaikuProvider } from './HaikuList'
-import { FormProvider } from './FormContext'
+import { AuthProvider } from './context/Auth';
+import { HaikuProvider } from './context/HaikuList'
+import { FormProvider } from './context/FormContext'
 import Home from './Home'
 import StoryField from './StoryField'
 import Header from './Header'

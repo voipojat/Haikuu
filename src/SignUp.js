@@ -2,10 +2,11 @@ import React, { useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { Paper, TextField, Grid, Button } from '@material-ui/core'
-import './SignUp.css'
+import './css/SignUp.css'
 import fire from './Fire'
 
 const SignUp = ({ history }) => {
+    //creating a new user
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
         const { email, password } = event.target.elements;
