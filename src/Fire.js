@@ -1,7 +1,7 @@
-import * as firebase from 'firebase/app'
+import firebase from 'firebase'
 import "firebase/auth"
 
-const fire = firebase.initializeApp({
+const config = {
     apiKey: "AIzaSyCeemQgV4-8NYJcRe2UNfmkH55xzmxAtNI",
     authDomain: "novelly-b4faf.firebaseapp.com",
     databaseURL: "https://novelly-b4faf.firebaseio.com",
@@ -10,6 +10,8 @@ const fire = firebase.initializeApp({
     messagingSenderId: "963778951991",
     appId: "1:963778951991:web:3c65c600e2e30d85fcf8b2",
     measurementId: "G-6HJ9KFW2KP"
-});
+};
 
-export default fire
+firebase.initializeApp(config);
+
+export default firebase

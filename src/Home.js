@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { HaikuContext } from './context/HaikuList'
 import Haiku from './Haiku'
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { FormContext } from './context/FormContext'
 import { makeStyles } from '@material-ui/core/styles';
-
+import firebase from './Fire'
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -16,8 +16,26 @@ const useStyles = makeStyles(theme => ({
 
 function Home() {
     const classes = useStyles();
-    const { haikus } = useContext(HaikuContext);
+    const { haikus, setHaiku } = useContext(HaikuContext);
     const { formSent } = useContext(FormContext)
+
+    const db = firebase.firestore();
+    let haikuList = db.collection('haikus').doc('8LMQarulirmmNLL8dTqY');
+    useEffect(() => {
+        haikuList.get()
+            .then(doc => {
+
+                if (!doc.exists) {
+                    setHaiku([])
+                } else {
+                    setHaiku(doc.data().haikus);
+                }
+            })
+            .catch(err => {
+                setHaiku([])
+            });
+
+    })
     return (
         <div >
             {formSent === true ?
@@ -34,6 +52,7 @@ function Home() {
                                 <Haiku key={haiku.id} id={haiku.id} title={haiku.title} text={haiku.text} user={haiku.user} score={haiku.score} userVote={haiku.userVote} />
                             ))}
                         </div>
+
                     </div></>}
         </div>
     )

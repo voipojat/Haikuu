@@ -6,6 +6,7 @@ import { AuthContext } from './context/Auth'
 import { HaikuContext } from './context/HaikuList'
 import { FormContext } from './context/FormContext'
 import { Redirect } from 'react-router-dom'
+import firebase from './Fire'
 
 function StoryField() {
     const { haikus, setHaiku } = useContext(HaikuContext)
@@ -13,6 +14,9 @@ function StoryField() {
     const { currentUser } = useContext(AuthContext);
     const [title, handleTitle] = useInputState("")
     const [text, handleText] = useInputState("")
+    const db = firebase.firestore();
+    const haikuList = db.collection('haikus').doc("8LMQarulirmmNLL8dTqY");
+
 
     const score = 0;
     const userVote = [];
@@ -25,7 +29,7 @@ function StoryField() {
     }
     useEffect(() => {
         haikus.sort((a, b) => b.score - a.score);
-        window.localStorage.setItem("haikus", JSON.stringify(haikus))
+        haikuList.update({ haikus: haikus })
     })
 
     if (formSent || !currentUser) {

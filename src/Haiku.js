@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Paper } from '@material-ui/core'
 import { HaikuContext } from './context/HaikuList'
 import { makeStyles } from '@material-ui/core/styles';
 import { AuthContext } from './context/Auth'
 import { Grid } from '@material-ui/core'
+import firebase from './Fire'
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -17,6 +18,9 @@ export default function Haiku({ title, text, user, score, id }) {
     const classes = useStyles();
     const { currentUser } = useContext(AuthContext);
     const { haikus, setHaiku } = useContext(HaikuContext)
+    const db = firebase.firestore();
+    const haikuList = db.collection('haikus').doc("8LMQarulirmmNLL8dTqY");
+
     const handleHaiku = (id, a) => {
         //making sure that user can only have one vote for haiku
         const updatedHaikus = haikus.map(haiku => (
@@ -25,7 +29,11 @@ export default function Haiku({ title, text, user, score, id }) {
         updatedHaikus.sort((a, b) => b.score - a.score);
         setHaiku(updatedHaikus);
     }
-    window.localStorage.setItem("haikus", JSON.stringify(haikus))
+
+    useEffect(() => {
+        haikuList.update({ haikus: haikus })
+        setHaiku(haikus);
+    })
 
     return (
         <Paper className={classes.paper} style={{
