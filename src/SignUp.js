@@ -38,4 +38,5 @@ const SignUp = ({ history }) => {
     )
 }
 
+
 export default withRouter(SignUp)
