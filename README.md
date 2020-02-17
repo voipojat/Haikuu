@@ -12,6 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 <img src="https://i.gyazo.com/01d08d93ad4c430c2badc5a52c6207ca.png" alt="Image from Gyazo" width="375"/>
 
-[Try live](https://haikuu.herokuapp.com/)
+[Try live](https://master.d3k0tdt1y5hhyb.amplifyapp.com/)
 
 

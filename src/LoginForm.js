@@ -27,7 +27,7 @@ const Login = ({ history }) => {
             <Grid container justify="flex-end" alignItems="center" direction="column">
                 <Paper style={{ maxWidth: 300, padding: "2rem" }}>
                     <form onSubmit={handleLogin}>
-                        <TextField name="email" id="outlined-basic" label="Username" variant="outlined" fullWidth />
+                        <TextField name="email" id="outlined-basic" label="Email" variant="outlined" fullWidth />
                         <TextField name="password" id="outlined-password-input" label="Password" type="password" autoComplete="current-password" variant="outlined" fullWidth />
                         <Button type="submit" variant="contained" color="primary" style={{ margin: "1rem" }} >Login</Button>
                     </form>
