@@ -37,4 +37,6 @@ const SignUp = ({ history }) => {
         </div>
     )
 }
+
+
 export default withRouter(SignUp)
